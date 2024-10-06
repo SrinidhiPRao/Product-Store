@@ -1,16 +1,13 @@
 import express from 'express';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import { connectDatabase } from './db.js';
 
 const app = express();
 
-app.get("/", (requst, response) => {
-    response.send("Server ready.");
-});
-
-console.log(process.env.MONGO_URI);
+app.post("/products", (request, response) => {
+    
+})
 
 app.listen(5000, () => {
+    connectDatabase();
     console.log("Server started at http://localhost:5000");
 });
