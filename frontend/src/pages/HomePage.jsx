@@ -31,10 +31,12 @@ const HomePage = () => {
                     w="full"
                 >
                     {products.map((product) => (
+
                         <ProductCard key={product._id} product={product} />
                     ))}
                 </SimpleGrid>
-                <Text fontSize='xl' textAlign='center' fontWeight={'bold'} color={'gray.500'}> 
+                {products.length == 0 && (
+                    <Text fontSize='xl' textAlign='center' fontWeight={'bold'} color={'gray.500'}> 
                     No Products found 😔 
                     <Link as={ReactRouterLink} to={'/create'}>
                      <Text as='span' color={'blue.500'} _hover={{textDecoration:'underline'}}>
@@ -42,6 +44,8 @@ const HomePage = () => {
                     </Text>
                     </Link>
                     </Text> 
+                )}
+                
             </VStack>
         </Container>
     );
